@@ -10,14 +10,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
 )
 `;
 
-const INSERIR_USUARIO_1 = 
-`
-INSERT INTO usuarios (
-    nome_completo, 
-    email,
-    senha
-) SELECT 'Marcelo', 'Marcelo', '123' WHERE NOT EXISTS (SELECT * FROM usuarios WHERE email = 'marceloteste@teste.com.br')
-`;
+// const INSERIR_USUARIO_1 = 
+// `
+// INSERT INTO usuarios (
+//     nome_completo, 
+//     email,
+//     senha
+// ) SELECT 'Marcelo', 'Marcelo', '123' WHERE NOT EXISTS (SELECT * FROM usuarios WHERE email = 'marceloteste@teste.com.br')
+// `;
 
 const LIVROS_SCHEMA = 
 `
@@ -50,7 +50,7 @@ INSERT INTO livros (
 bd.serialize(() => {
     bd.run("PRAGMA foreign_keys=ON");
     bd.run(USUARIOS_SCHEMA);
-    bd.run(INSERIR_USUARIO_1);
+    //bd.run(INSERIR_USUARIO_1);
     bd.run(LIVROS_SCHEMA);
     bd.run(INSERIR_LIVRO_1);
     bd.run(INSERIR_LIVRO_2);
